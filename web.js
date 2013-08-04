@@ -1,9 +1,9 @@
 var express = require("express");
 var fs = require("fs");
 var htmlfile = "index.html";
-var app = express.createServer(express.logger())
+var app = express.createServer(express.logger());
 var path = require("path");
-var url = require("url")
+var url = require("url");
 
 app.get('/', function(request, response) {
   var uri = url.parse(request.url).pathname, filename = path.join(process.cwd(), uri);
@@ -30,8 +30,11 @@ app.get('/', function(request, response) {
     response.writeHead(200);
     response.write(file, "binary");
     response.end(); 
+  });
 });
 
+})
+app.use('/images', express.static(__dirname + "/images"));
 var port = process.env.PORT || 8080;
 app.listen(port, function() {
   console.log("Listening on " + port);
