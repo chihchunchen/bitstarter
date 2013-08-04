@@ -1,0 +1,4 @@
+Static file server running at
+  => http://localhost:8080/
+CTRL + C to shutdown
+path.exists is now called `fs.exists`.
